@@ -14,5 +14,6 @@ public class Consumer {
         System.out.println("call over");
         // show the result
         System.out.println(hello);
+        context.close();
     }
 }
