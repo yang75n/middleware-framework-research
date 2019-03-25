@@ -10,6 +10,7 @@ public class MessagePrinter {
 
     @Autowired
     public MessagePrinter(MessageService service) {
+        System.out.println("MessagePrient construct");
         this.service = service;
     }
 

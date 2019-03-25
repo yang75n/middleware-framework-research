@@ -12,7 +12,7 @@ public class SampleController {
     @RequestMapping("/")
     @ResponseBody
     String home(int i) {
-        return "<h1>Hello World!<h1>"+i;
+        return "<h1>Hello World!<h1>" + ++i;
     }
 
     public static void main(String[] args) throws Exception {
