@@ -1,4 +1,4 @@
-package testNetty.testNetty;
+package testNetty.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;

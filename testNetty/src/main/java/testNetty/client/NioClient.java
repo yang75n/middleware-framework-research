@@ -1,4 +1,4 @@
-package testNetty.testNetty;
+package testNetty.client;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;

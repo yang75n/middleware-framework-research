@@ -1,4 +1,4 @@
-package testNetty.testNetty;
+package testNetty.client;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
