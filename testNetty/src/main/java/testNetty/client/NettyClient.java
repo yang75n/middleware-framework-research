@@ -41,6 +41,9 @@ public class NettyClient {
                                 ctx.write(buf);
                                 ctx.flush();
                             }
+
+
+
                         }); //客户端处理类
                     }
                 }).connect(new InetSocketAddress("127.0.0.1", 8088)).sync();

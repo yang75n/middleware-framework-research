@@ -6,7 +6,7 @@ import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@EnableAutoConfiguration
+@SpringBootApplication
 public class SampleController {
 
     @RequestMapping("/")

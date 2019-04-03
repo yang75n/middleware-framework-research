@@ -5,6 +5,8 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @作者:CJY
  * @说明:这个是用来实现ECHO协议，这个协议的作用就是将客户端输入的信息全部返回
@@ -33,12 +35,14 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 		//你可以直接使用writeAndFlush(msg)
 		//ctx.writeAndFlush(msg);
 
+        TimeUnit.SECONDS.sleep(100);
+        System.out.println("睡了0秒 Thread="+ Thread.currentThread().getName());
 
 	}
 
     @Override
     public void channelActive(final  ChannelHandlerContext ctx) throws Exception {
-        System.out.println("chennelActive");
+        System.out.println("chennelActive Thread="+Thread.currentThread().getName());
 
 
         final ByteBuf buf = ctx.alloc().buffer(4); // (2)

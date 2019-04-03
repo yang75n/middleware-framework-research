@@ -21,6 +21,6 @@ public class SocketClient {
         int ret = socket.getInputStream().read(data);
         System.out.println("ret=" + ret);
         System.out.println("收到=" + new String(data));
-        System.in.read();
+      //  System.in.read();
     }
 }
