@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 名称空间namespace必须唯一 -->
+<mapper namespace="com.yqw.test.mybatis.maper.StudentMapper">
+
+    <!--
+        resultMap标签：映射实体与表，非主键属性标签
+        type属性:实体全路径名，可在mybatis.xml文件中统一配置
+        id属性:为实体与表的映射取一个唯一的编号
+     -->
+    <resultMap type="student" id="studentMap">
+        <!--
+        id标签:映射主键属性
+        result标签：映射非主键属性
+        property属性:实体属性名
+        column属性：表的字段名
+         -->
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+    </resultMap>
+
+
+    <!--
+    insert标签:sql插入语句
+    id属性：该sql语句的唯一标签
+    parameterType:要执行的dao中的方法的参数，如果是类的话，必须使用全路径名
+    #{xx}：mybatis特有语法，用来替代jdbc中的?占位符
+     -->
+    <insert id="add1">
+        insert into student(id,name,age,sex) values("1","add1","22","男")
+    </insert>
+
+    <insert id="add2" parameterType="student">
+        insert into student(id,name,age,sex) values(#{id},#{name},#{age},#{sex})
+    </insert>
+
+    <insert id="add3" parameterType="student">
+    insert into student(id,name,age,sex) values(#{id},#{name},#{age},#{sex})
+    </insert>
+
+
+
+</mapper>
