@@ -1,4 +1,4 @@
-package mySpring.testSpting;
+package mySpring.testAOP;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
