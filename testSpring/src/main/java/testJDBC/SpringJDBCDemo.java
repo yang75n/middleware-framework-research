@@ -15,7 +15,7 @@ public class SpringJDBCDemo {
     public static void main(String[] args) {
         SpringJDBCDemo springJDBCDemo = new SpringJDBCDemo();
         springJDBCDemo.springJDBCTest();
-    }git st
+    }
 
 
     public void springJDBCTest() {
