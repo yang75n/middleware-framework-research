@@ -4,9 +4,9 @@ package testJDBC.model;
  * Created by iQiwen on 2019/4/29.
  */
 public class User {
-    private  int id ;
-    private  String name;
-    private  int age;
+    private int id;
+    private String name;
+    private int age;
 
 
     public int getId() {
@@ -31,5 +31,15 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
