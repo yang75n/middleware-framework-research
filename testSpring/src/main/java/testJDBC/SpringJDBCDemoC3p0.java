@@ -1,34 +1,46 @@
 package testJDBC;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import testJDBC.model.User;
 
+import java.beans.PropertyVetoException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class SpringJDBCDemo {
+public class SpringJDBCDemoC3p0 {
 
     public static void main(String[] args) {
-        SpringJDBCDemo springJDBCDemo = new SpringJDBCDemo();
+        SpringJDBCDemoC3p0 springJDBCDemo = new SpringJDBCDemoC3p0();
         springJDBCDemo.springJDBCTest();
     }
 
 
     public void springJDBCTest() {
-        //初始化DataSource
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3307/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("admin");
+        //初始化DataSource,使用SpringJDBC的DriverManagerDataSource
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3307/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("admin");
 
+
+        //初始化DataSource,使用C3p的ComboPooledDataSource
+        ComboPooledDataSource dataSource = new ComboPooledDataSource();
+        try {
+            dataSource.setDriverClass("com.mysql.jdbc.Driver");
+            dataSource.setJdbcUrl("jdbc:mysql://localhost:3307/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8");
+            dataSource.setUser("root");
+            dataSource.setPassword("admin");
+        } catch (PropertyVetoException e) {
+            e.printStackTrace();
+        }
 
         //初始化jdbcTemplate
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(driverManagerDataSource);
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         // 查询一条数据
         User user1 = jdbcTemplate.queryForObject("select * from user where id = ?", new UserRowMapper(), 1);
         System.out.println(user1);

@@ -28,11 +28,20 @@ public class NativeJDBCDemo {
         Class.forName("com.mysql.jdbc.Driver");
         //2. 获得数据库连接
         Connection conn = DriverManager.getConnection(nativeJDBCDemo.getUrl(), nativeJDBCDemo.getUsername(), nativeJDBCDemo.getPassword());
+// 使用Sprign中的数据源DataSource获取连接Connection也是可以的
+//        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+//        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3307/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8");
+//        driverManagerDataSource.setUsername("root");
+//        driverManagerDataSource.setPassword("admin");
+//        Connection   conn = driverManagerDataSource.getConnection();
+
         //3.操作数据库，实现增删改查
         //预编译SQL，减少sql执行
         String sql = "INSERT INTO user (name, age) VALUES ('qiwen', 22)";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.executeUpdate();
+
 
         ResultSet rs2 = stmt.executeQuery("SELECT * FROM user");
         //如果有数据，rs.next()返回true

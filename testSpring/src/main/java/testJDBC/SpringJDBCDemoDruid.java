@@ -1,8 +1,8 @@
 package testJDBC;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import testJDBC.model.User;
 
 import java.sql.ResultSet;
@@ -10,25 +10,34 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class SpringJDBCDemo {
+public class SpringJDBCDemoDruid {
 
     public static void main(String[] args) {
-        SpringJDBCDemo springJDBCDemo = new SpringJDBCDemo();
+        SpringJDBCDemoDruid springJDBCDemo = new SpringJDBCDemoDruid();
         springJDBCDemo.springJDBCTest();
     }
 
 
     public void springJDBCTest() {
-        //初始化DataSource
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3307/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("admin");
+        //初始化DataSource,使用SpringJDBC的DriverManagerDataSource
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3307/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("admin");
+
+
+        //初始化DataSource,DruidDataSource
+        DruidDataSource dataSource = new DruidDataSource();
+
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3307/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8");
+        dataSource.setUsername("root");
+        dataSource.setPassword("admin");
 
 
         //初始化jdbcTemplate
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(driverManagerDataSource);
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         // 查询一条数据
         User user1 = jdbcTemplate.queryForObject("select * from user where id = ?", new UserRowMapper(), 1);
         System.out.println(user1);
