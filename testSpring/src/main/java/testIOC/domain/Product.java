@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by iQiwen on 2019/5/13.
  */
-@Scope(value = BeanDefinition.SCOPE_SINGLETON)//默认就是单例
+@Scope(value = BeanDefinition.SCOPE_PROTOTYPE)//默认就是单例
 @Component("product")
 public class Product {
 

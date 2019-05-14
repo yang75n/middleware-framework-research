@@ -28,6 +28,7 @@ public class Config {
      *
      * @return
      */
+    //@Bean(name="testBean",initMethod="start",destroyMethod="cleanUp")
     @Bean
     public DataSource dataSource() {
         System.out.println("Config->dataSource");

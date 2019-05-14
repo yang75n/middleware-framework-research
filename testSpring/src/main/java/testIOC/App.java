@@ -11,8 +11,14 @@ import testIOC.repository.ProductRepository;
 import testIOC.service.ProductService;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 
-
+/**
+ * BeanFacotry是spring中比较原始的Factory。如XMLBeanFactory就是一种典型的BeanFactory。
+ * 原始的BeanFactory无法支持spring的许多插件，如AOP功能、Web应用等。
+ * ApplicationContext接口,它由BeanFactory接口派生而来，
+ * ApplicationContext包含BeanFactory的所有功能，通常建议比BeanFactory优先
+ */
 public class App {
 
 
@@ -53,6 +59,8 @@ public class App {
         //@通过@Import装载
         ComboPooledDataSource comboPooledDataSource = context.getBean(ComboPooledDataSource.class);
         System.out.println("ComboPooledDataSource=" + comboPooledDataSource);
+
+        System.out.println("所有Beans = " + Arrays.toString(context.getBeanDefinitionNames()));
 
     }
 }
