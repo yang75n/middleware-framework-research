@@ -42,14 +42,14 @@ public class Comsumer {
     }
 
 
-    public void getMessage(String disname) {
+    public void getMessage(String disName) {
         try {
-            MessageConsumer consumer = null;
+            MessageConsumer consumer;
 
             if (threadLocal.get() != null) {
                 consumer = threadLocal.get();
             } else {
-                Queue queue = session.createQueue(disname);
+                Queue queue = session.createQueue(disName);
                 consumer = session.createConsumer(queue);
                 threadLocal.set(consumer);
             }

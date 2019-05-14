@@ -10,7 +10,7 @@ import testAOP.userPackage.IUser;
 public class App {
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        BeanFactory factory = new ClassPathXmlApplicationContext("applicationContext.xml");
+        BeanFactory factory = new ClassPathXmlApplicationContext("testAOP_applicationContext.xml");
         IUser user = (IUser) factory.getBean("user");
         System.out.println("user=" + user);
         user.findAll();
