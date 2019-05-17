@@ -1,8 +1,0 @@
-
-
-task testCopy(type:Copy){
-	println "Hello,World"
-	from 'f'
-	into 'f1'
-	exclude 'f'
-}
