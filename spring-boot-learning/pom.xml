@@ -33,6 +33,9 @@
         <module>spring-boot-data-jpa</module>
         <module>spring-boot-jpa</module>
         <module>spring-boot-servlet</module>
+        <module>spring-boot-fileupload</module>
+        <module>spring-boot-ehcache</module>
+        <module>spring-boot-data-redis</module>
     </modules>
 
 

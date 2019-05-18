@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <!-- session工厂的配置 -->
+    <session-factory>
+        <!-- jdbc配置 -->
+        <property name="connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+        <property name="connection.url">
+            <!-- url的两种配置方式 -->
+            <!-- jdbc:mysql://localhost:3306/hibernate4-->
+            jdbc:mysql:///hibernate4
+        </property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <!-- 数据库方言
+            hibernate支持多种数据库，通过设置方言hibernate才知道应该
+            生成对应数据库的sql语句：hibernate支持的数据库的方言hibernate.properties文件中都有
+         -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQL5Dialect
+        </property>
+        <!-- 打印hibernate生成的sql语句 -->
+        <property name="show_sql">true</property>
+        <!-- 格式化打印的sql语句 -->
+        <property name="format_sql">true</property>
+        <!-- 根据不同值，进行数据表表的操作
+            create  每次执行 都删除原有表，然后创建新表
+            create-drop 执行前创建表，执行后删除表
+            update 如果有则不改变表，如果没有则创建
+         -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 将所有映射文件添加到这里 -->
+        <mapping resource="com/yqw/hibernate/domain/User.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

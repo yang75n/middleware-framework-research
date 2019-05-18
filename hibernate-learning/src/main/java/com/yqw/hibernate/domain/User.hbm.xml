@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<!-- 类的映射文件信息 -->
+<!-- package指定类的包名 可以不配置 如果不配置 那么在配置class的name时需要指定该类所在包-->
+<hibernate-mapping>
+    <!-- class配置类  name指类名  table指定表名  如果不写，默认类名为表名-->
+    <class name="com.yqw.hibernate.domain.User" table="t_user">
+        <!-- id主键的配置 name配置类的属性名
+             column数据库字段名 不写和属性名一致
+             type 指定属性的类型
+             length指定字段的长度
+        -->
+        <id name="id" column="id">
+            <!-- 主键的生成策略
+                increment
+                    用于为long, short或者int类型生成 唯一标识。只有在没有其他进程往
+                同一张表中插入数据时才能使用。 在集群下不要使用。
+                identity
+                    对DB2,MySQL, MS SQL Server, Sybase和HypersonicSQL
+                的内置标识字段提供支持。 返回的标识符是long, short 或者int类型的。
+                native -(如果是mysql自增，那么native和identity是一样)
+                    根据底层数据库的能力选择identity, sequence 或者hilo中的一个。
+                sequence
+                    在DB2,PostgreSQL, Oracle, SAP DB, McKoi中使用序列（sequence)，
+                    而在Interbase中使用生成器(generator)。返回的标识符是long, short或者 int类型的。
+                <generator class="sequence">
+                    <param name="sequence">user_seq</param>
+                </generator>
+                assigned
+                    让应用程序在save()之前为对象分配一个标示符。这是 <generator>元素没有指定时
+                    的默认生成策略。
+             -->
+            <generator class="identity">
+            </generator>
+        </id>
+        <!-- property是配置类的属性  name指属性名 -->
+        <property name="name" length="40"/>
+        <property name="age"/>
+    </class>
+</hibernate-mapping>

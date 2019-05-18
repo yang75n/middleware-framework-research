@@ -10,7 +10,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yqw</groupId>
     <artifactId>spring-boot-mybatis-xml</artifactId>
 
 

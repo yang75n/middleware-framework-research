@@ -11,6 +11,7 @@
         <module>spring-core-technologies</module>
         <module>spring-hibernate</module>
         <module>spring-hibernate-jpa</module>
+        <module>spring-mvc-xml</module>
     </modules>
 
     <packaging>pom</packaging>
