@@ -12,6 +12,7 @@
         <module>spring-hibernate</module>
         <module>spring-hibernate-jpa</module>
         <module>spring-mvc-xml</module>
+        <module>spring-test</module>
     </modules>
 
     <packaging>pom</packaging>

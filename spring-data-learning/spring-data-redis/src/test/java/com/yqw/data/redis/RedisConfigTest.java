@@ -1,20 +1,19 @@
-package com.yqw.boot.data.redis;
+package com.yqw.data.redis;
 
-
+import com.yqw.data.redis.config.RedisConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Spring Data Redis测试
+ * 通过Java配置方式配置Redis
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
-public class RedisTest {
-
+@ContextConfiguration(classes = RedisConfig.class)
+public class RedisConfigTest {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
@@ -23,7 +22,7 @@ public class RedisTest {
      */
     @Test
     public void testSet() {
-        this.redisTemplate.opsForValue().set("key", "北京尚学堂");
+        this.redisTemplate.opsForValue().set("key", "杨其文");
     }
 
     /**

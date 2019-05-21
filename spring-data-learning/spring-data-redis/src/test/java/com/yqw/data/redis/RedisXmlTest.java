@@ -12,13 +12,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Redis测试
- *
- * @author Administrator
- */
+* Redis测试
+* <p>
+* xml配置Bean的方式
+*
+* @author Administrator
+*/
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
-public class RedisTest {
+public class RedisXmlTest {
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
@@ -75,7 +77,7 @@ public class RedisTest {
         users.setId(2);
         users.setName("李四");
 
-        this.redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Users.class));
+        this.redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<Users>(Users.class));
         this.redisTemplate.opsForValue().set("usersjson", users);
     }
 

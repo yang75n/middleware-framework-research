@@ -37,6 +37,7 @@
         <module>spring-boot-ehcache</module>
         <module>spring-boot-data-redis</module>
         <module>spring-boot-web-mvc</module>
+        <module>spring-boot-custom-starter-hello</module>
     </modules>
 
 

@@ -1,4 +1,4 @@
-package com.yqw.boot.data.redis.config;
+package com.yqw.data.redis.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +18,8 @@ public class RedisConfig {
      */
     @Bean
     public JedisPoolConfig jedisPoolConfig() {
+        System.out.println("create jedisPoolConfig...");
+
         JedisPoolConfig config = new JedisPoolConfig();
         //最大空闲数
         config.setMaxIdle(10);
@@ -25,6 +27,8 @@ public class RedisConfig {
         config.setMinIdle(5);
         //最大链接数
         config.setMaxTotal(20);
+
+        System.out.println("return config");
 
         return config;
     }
@@ -34,6 +38,8 @@ public class RedisConfig {
      */
     @Bean
     public JedisConnectionFactory jedisConnectionFactory(JedisPoolConfig config) {
+        System.out.println("create jedisConnectionFactory...");
+
         JedisConnectionFactory factory = new JedisConnectionFactory();
         //关联链接池的配置对象
         factory.setPoolConfig(config);
@@ -42,6 +48,7 @@ public class RedisConfig {
         factory.setHostName("192.168.70.128");
         //端口
         factory.setPort(6379);
+        System.out.println("return factory");
 
         return factory;
     }
@@ -51,7 +58,8 @@ public class RedisConfig {
      */
     @Bean
     public RedisTemplate<String, Object> redisTemplate(JedisConnectionFactory factory) {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        System.out.println("create RedisTemplate...");
+        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
         //关联
         template.setConnectionFactory(factory);
 
@@ -59,6 +67,7 @@ public class RedisConfig {
         template.setKeySerializer(new StringRedisSerializer());
         //为value设置序列化器
         template.setValueSerializer(new StringRedisSerializer());
+
 
         return template;
     }
