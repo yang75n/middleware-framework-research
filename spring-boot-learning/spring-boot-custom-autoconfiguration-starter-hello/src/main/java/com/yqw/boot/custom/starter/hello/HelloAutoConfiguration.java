@@ -22,7 +22,7 @@ public class HelloAutoConfiguration {
     @ConditionalOnMissingBean(HelloService.class)
     @Bean
     public HelloService helloService() {
-        System.out.println("HelloAutoConfiguration->helloService()");
+        System.out.println("@Bean HelloAutoConfiguration->helloService()");
         HelloService helloService = new HelloService();
         helloService.setName(helloProperties.getName());
         return helloService;
