@@ -22,6 +22,7 @@ public class Application {
         if (logger.isInfoEnabled()) {
             logger.info("开启服务发现");
         }
+
         SpringApplication.run(Application.class, args);
     }
 }

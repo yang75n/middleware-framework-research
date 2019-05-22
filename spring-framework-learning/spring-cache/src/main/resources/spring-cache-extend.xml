@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/cache
+    http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <cache:annotation-driven/>
+
+    <bean id="userService" class="com.yqw.spring.cache.UserService"/>
+
+    <!-- extend cache manager -->
+    <bean id="cacheManager" class="com.yqw.spring.extend.cache.MyCacheManager">
+        <property name="caches">
+            <set>
+                <bean
+                        class="com.yqw.spring.extend.cache.MyCache"
+                        p:name="userCache"/>
+            </set>
+        </property>
+    </bean>
+
+</beans>
