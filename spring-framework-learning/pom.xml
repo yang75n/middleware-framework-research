@@ -13,6 +13,7 @@
         <module>spring-hibernate-jpa</module>
         <module>spring-mvc-xml</module>
         <module>spring-test</module>
+        <module>spring-cache</module>
     </modules>
 
     <packaging>pom</packaging>
