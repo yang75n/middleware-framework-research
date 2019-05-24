@@ -17,12 +17,12 @@ import java.util.Arrays;
  * InitializingBean和DisposableBean这两个接口都只包含一个方法。通过实现InitializingBean接口的afterPropertiesSet()
  * 方法可以在Bean属性值设置好之后做一些操作，
  * 实现DisposableBean接口的destroy()方法可以在销毁Bean之前做一些操作。
- * <p/>
+ * <p>
  * 有些时候我们需要在Bean的初始化中使用Spring框架自身的一些对象来执行一些操作，比如获取ServletContext的一些参数，获取ApplicaitionContext中的BeanDefinition的名字，获取Bean在容器中的名字等等。为了让Bean可以获取到框架自身的一些对象，Spring提供了一组名为*Aware的接口。
  * 这些接口均继承于org.springframework.beans.factory.Aware标记接口，并提供一个将由Bean实现的set*方法,Spring通过基于setter的依赖注入方式使相应的对象可以被Bean使用。
  * 网上说，这些接口是利用观察者模式实现的，类似于servlet listeners，目前还不明白，不过这也不在本文的讨论范围内。
  * 介绍一些重要的Aware接口：
- * <p/>
+ * <p>
  * ApplicationContextAware: 获得ApplicationContext对象,可以用来获取所有Bean definition的名字。
  * BeanFactoryAware:获得BeanFactory对象，可以用来检测Bean的作用域。
  * BeanNameAware:获得Bean在配置文件中定义的名字。
@@ -91,6 +91,7 @@ public class LifeCycleService implements InitializingBean, DisposableBean, Appli
     }
 
     /**
+     * 在构造函数之后，initMethod之前执行
      * 除了xml配置的方式，Spring也支持用@PostConstruct和 @PreDestroy注解来指定init和destroy方法。这两个注解均在javax.annotation包中。
      * 为了注解可以生效，需要在配置文件中定义org.springframework.context.annotation.CommonAnnotationBeanPostProcessor或context:annotation-config
      */
@@ -101,6 +102,7 @@ public class LifeCycleService implements InitializingBean, DisposableBean, Appli
 
     /**
      * 同上
+     * 在Destory之前执行
      */
     @PreDestroy
     public void preDestroy() {

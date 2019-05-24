@@ -29,7 +29,7 @@ public class UserImpl implements IUser {
     }
 
     public String findUser(String username) {
-       // init();
+        // init();
         String password = "没查到该用户";
         if (map.containsKey(username)) {
             password = map.get(username).toString();
