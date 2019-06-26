@@ -24,13 +24,13 @@ public class TestRedis {
 
     public void init() {
         jedis = new Jedis("127.0.0.1", 6379);
-        jedis.auth("coshaho");
+        jedis.auth("qiwen123");
     }
 
     public void testString() {
         // 设置值
         jedis.del("string1");
-        jedis.set("string1", "coshaho");
+        jedis.set("string1", "qiwen");
         System.out.println(jedis.get("string1"));
 
         // 字符串拼接
@@ -44,7 +44,7 @@ public class TestRedis {
         // 设置多个键值对
         jedis.del("name");
         jedis.del("age");
-        jedis.mset("name", "coshaho", "age", "28");
+        jedis.mset("name", "qiwen", "age", "28");
         // 加1操作
         jedis.incr("age");
         System.out.println(jedis.get("name") + "-" + jedis.get("age"));
@@ -53,7 +53,7 @@ public class TestRedis {
     public void testMap() {
         jedis.del("user");
         Map<String, String> map = new HashMap<String, String>();
-        map.put("name", "coshaho");
+        map.put("name", "qiwen");
         map.put("age", "28");
         map.put("sex", "male");
         jedis.hmset("user", map);
