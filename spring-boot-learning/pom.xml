@@ -38,6 +38,7 @@
         <module>spring-boot-data-redis</module>
         <module>spring-boot-web-mvc</module>
         <module>spring-boot-custom-autoconfiguration-starter-hello</module>
+        <module>spring-boot-rabbitmq</module>
     </modules>
 
 
