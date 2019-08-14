@@ -40,6 +40,7 @@
         <module>spring-boot-custom-autoconfiguration-starter-hello</module>
         <module>spring-boot-rabbitmq</module>
         <module>spring-boot-security</module>
+        <module>spring-boot-dubbo</module>
     </modules>
 
 
