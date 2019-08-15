@@ -20,6 +20,7 @@
         <module>service-provider</module>
         <module>service-consumer</module>
         <module>service-zuul</module>
+        <module>service-config</module>
     </modules>
 
 
