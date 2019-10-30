@@ -10,6 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>framework-log-log4j</module>
+        <module>framework-log-jul</module>
+        <module>framework-log-log4j2</module>
+        <module>framework-log-logback</module>
+        <module>framework-log-slf4j</module>
+        <module>framework-log-common-logging</module>
     </modules>
 
 
