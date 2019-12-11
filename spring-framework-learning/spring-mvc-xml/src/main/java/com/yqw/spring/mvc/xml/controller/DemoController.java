@@ -10,6 +10,7 @@ public class DemoController implements Controller {
     @Override
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.println("执行了springmvc的控制器");
+
         ModelAndView mav = new ModelAndView("main");
         return mav;
     }
