@@ -22,6 +22,7 @@
 
     <aop:aspectj-autoproxy/>
 
+
     <bean id="user" class="testAOP.userPackage.UserImpl"/>
 
     <bean id="check" class="testAOP.userPackage.CheckUser"/>

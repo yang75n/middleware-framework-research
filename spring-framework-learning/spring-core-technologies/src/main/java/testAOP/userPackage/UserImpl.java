@@ -23,11 +23,6 @@ public class UserImpl implements IUser {
         System.out.println("【The new List:" + map + "】");
     }
 
-    public void findAll() {
-        init();
-        System.out.println("---------------【findAll】: " + map + " ------------------");
-    }
-
     public String findUser(String username) {
         // init();
         String password = "没查到该用户";
@@ -41,4 +36,8 @@ public class UserImpl implements IUser {
 
     }
 
+    public void findAll() {
+        init();
+        System.out.println("---------------【findAll】: " + map + " ------------------");
+    }
 }
