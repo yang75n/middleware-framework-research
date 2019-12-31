@@ -16,11 +16,15 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>service-discovery</module>
-        <module>service-provider</module>
-        <module>service-consumer</module>
-        <module>service-zuul</module>
-        <module>service-config</module>
+        <module>spring-cloud-eureka</module>
+        <module>spring-cloud-service-provider</module>
+        <module>spring-cloud-service-consumer</module>
+        <module>spring-cloud-zuul</module>
+        <module>spring-cloud-config</module>
+        <module>spring-cloud-hystrix</module>
+        <module>spring-cloud-feign</module>
+        <module>spring-cloud-ribbon</module>
+        <module>spring-cloud-stream</module>
     </modules>
 
 
